@@ -2,7 +2,7 @@
 	"name": "@adque/vue-markdown-directive",
 	"version": "1.0.0",
 	"description": "A Vue 2.0 directive to parse markdown using the markdown-it parser.",
-	"main": "umd/vue-directive-markdown.js",
+	"main": "umd/vue-markdown-directive.js",
 	"module": "es6/index.js",
 	"types": "types/index.d.ts",
 	"files": [
@@ -18,10 +18,14 @@
 	"license": "MIT",
 	"scripts": {
 		"clean": "rimraf ./es6/* ./umd/* ./types/*",
-		"build:es6": "tsc -p ."
+		"build:es6": "tsc -p .",
+		"build:umd": "rollup -c"
 	},
 	"devDependencies": {
 		"rimraf": "^3.0.0",
+		"rollup": "^1.24.0",
+		"rollup-plugin-node-resolve": "^5.2.0",
+		"rollup-plugin-terser": "^5.1.2",
 		"typescript": "^3.6.4"
 	}
 }
