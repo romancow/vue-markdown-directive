@@ -4,6 +4,12 @@
 	"description": "A Vue 2.0 directive to parse markdown using the markdown-it parser.",
 	"main": "umd/vue-directive-markdown.js",
 	"module": "es6/index.js",
+	"types": "types/index.d.ts",
+	"files": [
+		"es6/",
+		"umd/",
+		"types/"
+	],
 	"repository": "git://github.com/adque/vue-markdown-directive.git",
 	"publishConfig": {
 		"registry": "https://npm.pkg.github.com/"
