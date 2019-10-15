@@ -9,7 +9,7 @@
 		"registry": "https://npm.pkg.github.com/"
 	},
 	"author": "Sean Wilson <scw@adque.com>",
-	"license": "UNLICENSED",
+	"license": "MIT",
 	"scripts": {
 		"clean": "rimraf ./es6/* ./umd/* ./types/*"
 	},
