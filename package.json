@@ -10,5 +10,10 @@
 	},
 	"author": "Sean Wilson <scw@adque.com>",
 	"license": "UNLICENSED",
-	"scripts": {}
+	"scripts": {
+		"clean": "rimraf ./es6/* ./umd/* ./types/*"
+	},
+	"devDependencies": {
+		"rimraf": "^3.0.0"
+	}
 }
