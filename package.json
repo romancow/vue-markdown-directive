@@ -6,8 +6,8 @@
 	"module": "es6/index.js",
 	"types": "types/index.d.ts",
 	"files": [
-		"es6/",
-		"umd/",
+		"es6/*.js",
+		"umd/*.js",
 		"types/"
 	],
 	"repository": "git://github.com/adque/vue-markdown-directive.git",
@@ -19,7 +19,10 @@
 	"scripts": {
 		"clean": "rimraf ./es6/* ./umd/* ./types/*",
 		"build:es6": "tsc -p .",
-		"build:umd": "rollup -c"
+		"build:umd": "rollup -c",
+		"prebuild": "npm run clean",
+		"build": "npm run build:es6 && npm run build:umd",
+		"prepare": "npm run build"
 	},
 	"devDependencies": {
 		"rimraf": "^3.0.0",
