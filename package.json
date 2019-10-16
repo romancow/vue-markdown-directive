@@ -31,6 +31,7 @@
 		"vue": "~2.0"
 	},
 	"devDependencies": {
+		"@types/markdown-it": "^0.0.9",
 		"rimraf": "^3.0.0",
 		"rollup": "^1.24.0",
 		"rollup-plugin-node-resolve": "^5.2.0",
