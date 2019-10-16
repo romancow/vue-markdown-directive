@@ -1,0 +1,37 @@
+<html>
+	<head>
+		<title>vue-markdown-directive Test</title>
+		<script src="../node_modules/vue/dist/vue.js"></script>
+		<script src="../umd/vue-markdown-directive.js"></script>
+		<script>
+			document.addEventListener('DOMContentLoaded', function() {
+				vueApp = new Vue({
+					el: '#app',
+					directives: { markdown: VueMarkdownDirective },
+					data: {
+						markdown: "# Markdown Test\n This is a *vue-markdown-directive* test",
+						preset: "commonmark"
+					}
+				})
+			})
+		</script>
+		<style>
+			#app {
+				display: flex;
+				height: 100%;
+			}
+
+			#app > * {
+				flex: 1;
+				height: 100%;
+				padding: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<main id="app">
+			<textarea class="left markdown" v-model="markdown"></textarea>
+			<div class="right rendered" v-markdown:[preset]="markdown"></div>
+		</main>
+	</body>
+</html>
