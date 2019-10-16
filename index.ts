@@ -7,8 +7,6 @@ export enum MarkdownItPreset {
 	CommonMark = 'commonmark'
 }
 
-type VueMarkdownDirective = DirectiveOptions & { preset?: MarkdownItPreset,  options?: MarkdownIt.Options }
-
 const isPreset = (arg: string | undefined): arg is MarkdownItPreset =>
 	(arg != null) && Object.values<string>(MarkdownItPreset).includes(arg)
 
@@ -21,7 +19,13 @@ const toOptions = (modifiers: { [key: string]: boolean }, defaults: MarkdownIt.O
 	}, options as { [key: string]: boolean }) as MarkdownIt.Options
 }
 
+export type VueMarkdownDirective = DirectiveOptions & {
+	preset?: MarkdownItPreset,
+	options?: MarkdownIt.Options
+}
+
 const vueMarkdownDirective: VueMarkdownDirective = {
+	options: {},
 
 	inserted(el, {value, arg, modifiers}) {
 		const { preset = MarkdownItPreset.Default,  options } = this
@@ -29,9 +33,8 @@ const vueMarkdownDirective: VueMarkdownDirective = {
 		const mdOptions = toOptions(modifiers, options)
 		const markdownIt = MarkdownIt(presetName, mdOptions)
 		const md = (value != null) ? value : el.innerHTML
-		markdownIt.render(md)
+		el.innerHTML = markdownIt.render(md)
 	}
-
 }
 
 export type VueMarkdownDirectiveOptions = MarkdownIt.Options
