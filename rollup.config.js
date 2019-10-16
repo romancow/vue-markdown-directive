@@ -1,5 +1,8 @@
 import pkg from './package.json'
+import builtins from 'rollup-plugin-node-builtins'
 import resolve from 'rollup-plugin-node-resolve'
+import commonjs from 'rollup-plugin-commonjs'
+import json from 'rollup-plugin-json'
 import { terser } from 'rollup-plugin-terser'
 
 export default {
@@ -11,5 +14,5 @@ export default {
 		sourcemap: true,
 		sourcemapExcludeSources: true
 	},
-	plugins: [ resolve(), terser() ]
+	plugins: [ builtins(), resolve(), commonjs(), json(), terser() ]
 }
