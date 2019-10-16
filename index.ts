@@ -14,13 +14,15 @@ const toOptions = (modifiers: { [key: string]: boolean }) => {
 	}, {} as { [key: string]: boolean }) as MarkdownIt.Options
 }
 
-const vueMarkdownDirective: VueMarkdownDirective = {
+const directive: VueMarkdownDirective = {
 	options: {},
 
-	inserted(el, {value, arg, modifiers}) {
-		const preset = [value.preset, arg, this.preset].find(isPreset) || 'default'
-		const options = Object.assign({}, value.options, toOptions(modifiers), this.options)
-		const markdown = [value.markdown, value, el.innerText].find(md => typeof md === 'string')
+	bind(...args) { directive.componentUpdated!(...args) },
+
+	componentUpdated(el, {value = {}, arg, modifiers}) {
+		const preset = [value.preset, arg, directive.preset].find(isPreset) || 'default'
+		const options = Object.assign({}, value.options, toOptions(modifiers), directive.options)
+		const markdown = [value.markdown, value, el.innerHTML].find(md => typeof md === 'string')
 		const markdownIt = MarkdownIt(preset, options)
 		el.innerHTML = markdownIt.render(markdown)
 	}
@@ -32,4 +34,4 @@ export type VueMarkdownDirective = DirectiveOptions & {
 	preset?: MarkdownItPreset,
 	options?: MarkdownIt.Options
 }
-export default vueMarkdownDirective
+export default directive
