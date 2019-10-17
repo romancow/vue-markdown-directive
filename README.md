@@ -88,4 +88,4 @@ You can also set/change the preset and options for each use of the directive. Se
 
 ### Plugins & Rules
 
-Currently there is no way to add [plugins](https://github.com/markdown-it/markdown-it#plugins-load) or enable/disable [rules](https://github.com/markdown-it/markdown-it#manage-rules) (#2, #4).
+Currently there is no way to add [plugins](https://github.com/markdown-it/markdown-it#plugins-load) or enable/disable [rules](https://github.com/markdown-it/markdown-it#manage-rules) ([#2](https://github.com/romancow/vue-markdown-directive/issues/2), [#4](https://github.com/romancow/vue-markdown-directive/issues/4)).
